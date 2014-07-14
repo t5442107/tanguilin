@@ -1,0 +1,55 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "WXHLGlobalUICommon.h" 
+    #import "UIViewExt.h"
+    #import "UIView+Additions.h"
+#endif
+
+//取得设备屏幕宽和高
+
+#import "MBProgressHUD.h" //等待指示器
+
+#define ScreenHeight  [UIScreen mainScreen].bounds.size.height
+#define ScreenWidth   [UIScreen mainScreen].bounds.size.width
+
+//url
+
+
+// 首页URL
+#define IndexHdpUrl    @"http://www.0773time.com/index.php?m=index&a=index_json"
+#define ShopListUrl    @"http://www.0773time.com/food.php/Foodmap/maplist_json.html"
+#define LocationLists  @"http://www.0773time.com/food.php/Foodmap/locationList.html"  //定位得到的附近的店家数据
+#define UserFaceImage  @"http://www.0773time.com/ucenter/avatar.php?size=middle&uid="
+#define RegisterIOSUrl @"http://www.0773time.com/user.php/Public/doregisterIOS.html" //会员注册
+#define CheckUserLogin @"http://www.0773time.com/ios.php/Check/Index" //验证会员登陆
+#define ShopInfoComment @"http://www.0773time.com/ios.php/Shop/shopInfoComment" //评论地址
+#define UserLoginUrl   @"http://www.0773time.com/ios.php/Login/Index" //会员登陆
+
+#define PostCommentUrl @"http://www.0773time.com/ios.php/Shop/postComment" //处理店家评论信息
+#define GetTgUrl       @"http://www.0773time.com/ios.php/Foreteste" //取得试吃团数据
+#define RecipesUrl      @"http://www.0773time.com/ios.php/Recipes/Index"  //菜普首页
+#define RecipesInfoUrl @"http://www.0773time.com/ios.php/Recipes/recipes" //菜普详细页
+#define RecipesAddCollectUrl @"http://www.0773time.com/ios.php/Recipes/collect"  //添加菜普
+#define RecipesDelCollectUrl @"http://www.0773time.com/ios.php/Recipes/delCollect"  //删除菜普
+#define RecipesMyUrl @"http://www.0773time.com/ios.php/Recipes/mycollect" //我收藏的菜普
+
+#define GetImageWandH   @"http://www.0773time.com/ios.php/Recipes/postImageWandH" //获得图片的宽高
+#define RecipesMenuUrl @"http://www.0773time.com/ios.php/Recipes/fenlei/" //菜普分类
+
+//通知
+#define loginStatusNotificationCenter @"loginStatusNotificationCenter"  //通知  发送通知 改用户登陆 状态
+
+#define loginStatusRemoveNotificationCenter @"loginStatusRemoveNotificationCenter"
