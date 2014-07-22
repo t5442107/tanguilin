@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 typedef void(^SoTextBlock)(NSString* str);
 
-@interface SoHomeViewController : UIViewController<UITextFieldDelegate>{
+@interface SoHomeViewController : UIViewController<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>{
     UITextField *_soText;
+    UITableView *_tableView;
+    NSMutableArray *_data;
 }
 
 

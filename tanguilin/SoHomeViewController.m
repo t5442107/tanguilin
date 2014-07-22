@@ -40,7 +40,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    _data = [[NSMutableArray alloc]init];
     [DB creatTable:@"ksb_recipes_sohome" createSql:CreateSql]; //创建表
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
@@ -93,6 +93,14 @@
     
     [titleView addSubview:_soText];
     
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, titleViews.bottom, ScreenWidth, ScreenHeight -280) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.hidden = YES;
+    [self.view addSubview:_tableView];
+    
+
+    
     
 
     
@@ -124,7 +132,10 @@
             if ([db tableExists:ksb_recipes_so]) {
                 
                  NSString *sql = [NSString stringWithFormat:@"insert into %@ (title) values ('%@')",ksb_recipes_so,_soText.text];
+                
                  NSString *sqlCheck = [NSString stringWithFormat:@"select title from %@ where title = '%@'",ksb_recipes_so,_soText.text];
+                
+                
                  FMResultSet *rw = [db executeQuery:sqlCheck];
                 
                 if (![rw next]) {
@@ -156,6 +167,77 @@
     return YES;
 }
 
+
+#pragma mark tableView
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return _data.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *Identifier = @"cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier];
+    
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier]autorelease];
+    }
+    
+    cell.textLabel.text = [_data objectAtIndex:indexPath.row];
+    
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    _soText.text = [_data objectAtIndex:indexPath.row];
+    _tableView.hidden = YES;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSString *delText = [_data objectAtIndex:indexPath.row];
+        
+       
+        
+        FMDatabase *db = [DB creatDatabase];
+        
+        [db setShouldCacheStatements:YES];
+        
+        if ([db open]) {
+            
+            if ([db tableExists:ksb_recipes_so]) {
+                
+                NSString *delSql = [NSString stringWithFormat:@"Delete from %@ where title = '%@'",ksb_recipes_so,delText];
+                FMResultSet *rw = [db executeQuery:delSql];
+                if (![rw next]) {
+                    NSLog(@"删除成功");
+                    [_data removeObjectAtIndex:indexPath.row];
+                    [_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                }else{
+                    NSLog(@"删除失败");
+                }
+            }
+            
+           
+        }
+        
+        
+         
+    }
+    
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+ 
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     //返回一个BOOL值，指明是否允许在按下回车键时结束编辑
     //如果允许要调用resignFirstResponder 方法，这回导致结束编辑，而键盘会被收起
@@ -165,7 +247,46 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     
-    NSLog(@"fffff");
+    //创建 数据包
+    FMDatabase *db = [DB creatDatabase];
+    
+    //打开数据库
+    if ([db open]) {
+        
+        //开起缓存
+        [db setShouldCacheStatements:YES];
+        
+        //查看是否有这个表
+        if ([db tableExists:ksb_recipes_so]) {
+            
+             NSString *sqlCheck = [NSString stringWithFormat:@"select title from %@ order by rid desc",ksb_recipes_so];
+            
+            FMResultSet *rw = [db executeQuery:sqlCheck];
+            
+            if (rw) {
+                 
+                [_data removeAllObjects];
+                
+                while ([rw next]) {
+                    
+                    [_data addObject:[rw stringForColumn:@"title"]];
+                    if (_data.count > 0) {
+                        
+                        [_tableView reloadData];
+                        _tableView.hidden = NO;
+                    }
+                    
+                }
+                
+                
+            }
+            
+           
+        }
+        
+    }
+    
+    
    }
 
 
@@ -175,6 +296,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)dealloc
+{
+    [super dealloc];
+    [_data release],_data = nil;
+    [_tableView release];
+    
 }
 
 @end

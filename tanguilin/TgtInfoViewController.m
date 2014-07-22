@@ -63,11 +63,12 @@
     
     _webView = [[UIWebView alloc]init];
     _webView.delegate = self;
-    _webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+    _webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight + 49);
+    
     _tgModel.art_content = [UIUtils getImage:_tgModel.art_content];
     [_webView loadHTMLString:_tgModel.art_content baseURL:Nil];
     
-    _webView.backgroundColor=[UIColor clearColor];
+//    _webView.backgroundColor=[UIColor clearColor];
     
     for (UIView *aView in [_webView subviews])
         
