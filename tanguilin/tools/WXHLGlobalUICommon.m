@@ -1,8 +1,6 @@
 //
 //  WXHLGlobalUICommon.m
-//  WXMovie
-// 
-//
+ 
 
 #import "WXHLGlobalUICommon.h"
 

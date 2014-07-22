@@ -1,10 +1,6 @@
 //
 //  UIUtils.m
-//  WXTime
-//
-//  Created by wei.chen on 12-7-22.
-//  Copyright (c) 2012年 www.iphonetrain.com 无限互联ios开发培训中心 All rights reserved.
-//
+ 
 
 #import "UIUtils.h"
 #import <CommonCrypto/CommonDigest.h>
