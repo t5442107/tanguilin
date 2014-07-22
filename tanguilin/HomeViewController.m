@@ -4,7 +4,7 @@
 //
 //  Created by yangyuji on 14-2-17.
 //  Copyright (c) 2014年 com.tanguilin. All rights reserved.
-//  //  有问题需要解答的，让加q群 170627662 ,我会尽我全力来回答问题，谢谢支持
+//
 
 #import "HomeViewController.h"
 
@@ -16,7 +16,7 @@
 #import "ShopInfoViewController.h"
 #import "WebViewController.h"
 #import "LoginShare.h"
- 
+#import "SoHomeViewController.h"
 
 @implementation HomeViewController
 
@@ -48,7 +48,9 @@
     [self.appDelegate.ddmenu setEnableGesture:NO];
     _menu.hidden = NO;
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -112,7 +114,7 @@
     
     
     _menu = [[UIView alloc]init];
-    _menu.frame = CGRectMake(0, menuHeight, 320, 25);
+    _menu.frame = CGRectMake(0, menuHeight, 320, 30);
     _menu.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_menu];
     
@@ -136,8 +138,7 @@
          
         button.titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
         
-        
-        button.frame = CGRectMake( x , 0, sizeName.width, 25);
+        button.frame = CGRectMake( x , 0, sizeName.width, 30);
         x +=  sizeName.width + 10;
         
         
@@ -160,14 +161,29 @@
     
     [self getHdp];
     
-    //获取shop 列表
-    [JSONHTTPClient getJSONFromURLWithString:ShopListUrl completion:^(id json, JSONModelError *err) {
-        [self loadShopData:json];
-       
-        [self downFoot];
-    }];
+    
+        
+        //获取shop 列表
+        [JSONHTTPClient getJSONFromURLWithString:ShopListUrl completion:^(id json, JSONModelError *err) {
+            [self loadShopData:json];
+            
+            [self downFoot];
+        }];
+    
+    
+   
     
      [self upHeader];
+    
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(0, 0, 40, 40);
+    [leftButton setTitle:@"搜索" forState:UIControlStateNormal];
+    [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
+    [leftButton addTarget:self action:@selector(leftClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.leftBarButtonItem =  leftButtonItem;
+    [leftButtonItem release];
     
    
     
@@ -207,6 +223,38 @@
     }
     
    [_header beginRefreshing];
+}
+
+- (void)leftClickAction:(UIButton*)but{
+    
+    SoHomeViewController *soHomeVC = [[SoHomeViewController alloc] init];
+    
+    [self presentViewController:soHomeVC animated:YES completion:nil];
+    
+    
+//    [self.navigationController pushViewController:soHomeVC animated:YES];
+    [soHomeVC release];
+    
+    soHomeVC.block = ^(NSString *str){
+        
+        
+        _keyword = str;
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [_params setObject:_keyword forKey:@"keyword"];
+        
+        [JSONHTTPClient getJSONFromURLWithString:ShopListUrl params:_params completion:^(id json, JSONModelError *err) {
+            
+            [self loadShopData:json];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
+        }];
+        
+        
+        
+        
+        
+    };
+    
 }
 
 
@@ -342,6 +390,8 @@
     [view addSubview:_noteTitle];
     
     [view release];
+    
+    
 }
 
 
@@ -395,6 +445,7 @@
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView{
     if ([refreshView isKindOfClass:[MJRefreshHeaderView class]]) {
         [_params removeObjectForKey:@"p"];
+        [_params removeObjectForKey:@"keyword"];
     }
     
     if ([refreshView isKindOfClass:[MJRefreshFooterView class]]) {

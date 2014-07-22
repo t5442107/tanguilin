@@ -101,13 +101,10 @@
     if (json) {
         NSNumber *uid = (NSNumber*)[json objectForKey:@"uid"];
         NSNumber * status = (NSNumber *)[json objectForKey:@"status"];
-        NSString *msg = [json objectForKey:@"msg"];
+//        NSString *msg = [json objectForKey:@"msg"];
         NSString *username = [json objectForKey:@"username"];
         NSString *identifier = [json objectForKey:@"identifier"];
         NSString *outTime = [json objectForKey:@"outTime"];
-        
-         NSLog(@"%@",msg);
-        
         if ([status intValue] == 1) {
             
             NSUserDefaults * tanguilin = [NSUserDefaults standardUserDefaults];  
