@@ -91,6 +91,8 @@
 		847188B1196142D400766D4B /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847188AD196142D400766D4B /* login@2x.png */; };
 		847188B3196151C900766D4B /* navigationController_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 847188B2196151C900766D4B /* navigationController_back.png */; };
 		847188B51961520E00766D4B /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 847188B41961520E00766D4B /* button@2x.png */; };
+		847CCB83197CB7B200E5859F /* SoHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847CCB81197CB7B200E5859F /* SoHomeViewController.m */; };
+		847CCB84197CB7B200E5859F /* SoHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847CCB82197CB7B200E5859F /* SoHomeViewController.xib */; };
 		8482B35618BB8A1C00CD375E /* ShopMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8482B35518BB8A1C00CD375E /* ShopMapViewController.m */; };
 		848C214818C4143000CAEAD2 /* ShopInfoCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 848C214718C4143000CAEAD2 /* ShopInfoCommentCell.m */; };
 		848C214A18C4144600CAEAD2 /* ShopInfoCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848C214918C4144600CAEAD2 /* ShopInfoCommentCell.xib */; };
@@ -391,6 +393,9 @@
 		847188AD196142D400766D4B /* login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@2x.png"; sourceTree = "<group>"; };
 		847188B2196151C900766D4B /* navigationController_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationController_back.png; sourceTree = "<group>"; };
 		847188B41961520E00766D4B /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
+		847CCB80197CB7B200E5859F /* SoHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoHomeViewController.h; sourceTree = "<group>"; };
+		847CCB81197CB7B200E5859F /* SoHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoHomeViewController.m; sourceTree = "<group>"; };
+		847CCB82197CB7B200E5859F /* SoHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoHomeViewController.xib; sourceTree = "<group>"; };
 		8482B35418BB8A1C00CD375E /* ShopMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopMapViewController.h; sourceTree = "<group>"; };
 		8482B35518BB8A1C00CD375E /* ShopMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopMapViewController.m; sourceTree = "<group>"; };
 		848C214618C4143000CAEAD2 /* ShopInfoCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopInfoCommentCell.h; sourceTree = "<group>"; };
@@ -1094,6 +1099,9 @@
 				84F8882818C4AB1C0059DC7A /* CommentListController.m */,
 				84F8882918C4AB1C0059DC7A /* CommentListController.xib */,
 				843A06F919484C0F009D633D /* tanguilin-Bridging-Header.h */,
+				847CCB80197CB7B200E5859F /* SoHomeViewController.h */,
+				847CCB81197CB7B200E5859F /* SoHomeViewController.m */,
+				847CCB82197CB7B200E5859F /* SoHomeViewController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1918,6 +1926,7 @@
 				84BE48A21962639A009E75B0 /* Images-3.xcassets in Resources */,
 				841CA1EE18B1E52F00FD9E2E /* tabbar_discover.png in Resources */,
 				84B94B9518F7BE6700D7DF11 /* ShareSDKiPadDefaultShareViewUI.bundle in Resources */,
+				847CCB84197CB7B200E5859F /* SoHomeViewController.xib in Resources */,
 				849BB9E318CF2FFA00AB2519 /* Default.png in Resources */,
 				8495F29A18B9F34700E8108F /* mapapi.bundle in Resources */,
 				8432205018FA612100893E7E /* 58.png in Resources */,
@@ -2037,6 +2046,7 @@
 				84E1ABED18BAF24900C25345 /* ShopAnnotation.m in Sources */,
 				841CA22218B1E74E00FD9E2E /* HomeViewController.m in Sources */,
 				84AA996F18C827BF0020C968 /* TgModel.m in Sources */,
+				847CCB83197CB7B200E5859F /* SoHomeViewController.m in Sources */,
 				84F9746C18B312DD00CF2219 /* JSONValueTransformer.m in Sources */,
 				84D29C1418B598B6008C3A7D /* MJRefreshHeaderView.m in Sources */,
 				84DBD7AC18FFC4CF00AC009F /* ASIAuthenticationDialog.m in Sources */,
