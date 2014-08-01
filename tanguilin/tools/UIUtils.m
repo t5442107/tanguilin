@@ -36,6 +36,8 @@
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:formate];
 NSDate *date = [formatter dateFromString:datestring];
+    
+    [formatter release];
     return date;
 }
 

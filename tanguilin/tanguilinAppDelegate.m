@@ -61,14 +61,15 @@
     LeftViewController *leftVC = [[LeftViewController alloc]init];
    
     
-    _ddmenu.rightViewController = rightVC ;
-    _ddmenu.leftViewController =   leftVC;
+    _ddmenu.rightViewController = [rightVC autorelease] ;
+    _ddmenu.leftViewController =   [leftVC autorelease];
     
     
     UINavigationController *rddmenu = [[UINavigationController alloc]initWithRootViewController:_ddmenu];
     _ddmenu.navigationController.navigationBarHidden = YES;
     
     self.window.rootViewController = rddmenu;
+    [rddmenu release];
 //    
 //    [leftVC release];
 //    [rightVC release];

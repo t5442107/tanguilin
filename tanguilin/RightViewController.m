@@ -54,6 +54,7 @@
     usernameLabel.frame = CGRectMake(userImage.left, userImage.bottom + 10, 100, 30);
     usernameLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     usernameLabel.text = login.username;
+    [login release];
     usernameLabel.textColor = [UIColor redColor];
     usernameLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:usernameLabel];

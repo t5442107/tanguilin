@@ -60,6 +60,8 @@
     UIBarButtonItem *rightBBI = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
     self.navigationItem.rightBarButtonItem = rightBBI;
     
+    [rightBBI release];
+    
     
     _webView = [[UIWebView alloc]init];
     _webView.delegate = self;

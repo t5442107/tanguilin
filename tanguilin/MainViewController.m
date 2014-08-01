@@ -60,6 +60,12 @@
     MoreViewController *moreVC = [[MoreViewController alloc]init];
     
     NSArray *views = @[homeVC,messageVC,profileVC,discoverVC,moreVC];
+    
+    [homeVC release];
+    [messageVC release];
+    [profileVC release];
+    [discoverVC release];
+    [moreVC release];
     NSMutableArray *viewControllers = [NSMutableArray arrayWithCapacity:5];
     
     for (UIViewController *viewController in views) {

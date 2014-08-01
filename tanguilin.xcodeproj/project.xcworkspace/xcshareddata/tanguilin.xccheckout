@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>20D5F4F8-AAA8-4FDC-A2B6-9E40F99FAA8E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>tanguilin</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8702EF6C-97E6-44B6-B72E-E4BE05062813</key>
+		<string>https://github.com/t5442107/tanguilin.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>tanguilin.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8702EF6C-97E6-44B6-B72E-E4BE05062813</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/t5442107/tanguilin.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8702EF6C-97E6-44B6-B72E-E4BE05062813</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8702EF6C-97E6-44B6-B72E-E4BE05062813</string>
+			<key>IDESourceControlWCCName</key>
+			<string>tanguilin</string>
+		</dict>
+	</array>
+</dict>
+</plist>

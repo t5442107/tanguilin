@@ -39,6 +39,8 @@
 
 
 
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -81,6 +83,13 @@
     self.navigationItem.titleView=titleText;
     
     [titleText release];
+    
+    
+    /* button 测试*/
+    
+//    UIButton *buttonx = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    
     
     
     
@@ -324,6 +333,7 @@
             HdpIndexModel *hdpModel = [[HdpIndexModel alloc]initWithDictionary:[_hdpData objectAtIndex:i] error:Nil]; 
            
             [arrayM addObject:hdpModel];
+            [hdpModel release];
             
         }
         
@@ -347,6 +357,7 @@
             textLabel.text = hdpModel.slide_title;
             textLabel.tag = 10 +i;
             [_scrollView addSubview:textLabel];
+            [textLabel release];
             
             UITapGestureRecognizer *webTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(webTab:)];
             [imageView addGestureRecognizer:webTap];
@@ -388,7 +399,7 @@
     [_noteTitle setText:hdp.slide_title];
     _noteTitle.font = [UIFont systemFontOfSize:12.0];
     [view addSubview:_noteTitle];
-    
+    [hdp release];
     [view release];
     
     

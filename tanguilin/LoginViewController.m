@@ -41,7 +41,7 @@
     
     
     UIView * bView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight  )];
-    bView.backgroundColor = [[UIColor alloc]initWithPatternImage:[UIImage imageNamed:@"userbg.png"]];
+    bView.backgroundColor = [[[UIColor alloc]initWithPatternImage:[UIImage imageNamed:@"userbg.png"]]autorelease];
     
     bView.alpha = 0.5;
     [self.view insertSubview:bView atIndex:0];
@@ -112,6 +112,8 @@
             [tanguilin setObject:username forKey:@"username"];
             [tanguilin setObject:identifier forKey:@"identifier"];
             [tanguilin setObject:outTime forKey:@"outTime"];
+            
+            [[NSUserDefaults standardUserDefaults] synchronize];//强制同步 写入 
             
             LoginShare *loginShare = [LoginShare shareLogin];
             loginShare.uid = uid;

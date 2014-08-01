@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tanguilin/TgtInfoViewController.m"
-            timestampString = "427708249.509599"
+            timestampString = "427953070.978843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "-commentAction:"
             landmarkType = "5">
          </BreakpointContent>

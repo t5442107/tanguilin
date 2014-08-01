@@ -159,6 +159,7 @@
     NSDictionary *dic = [_commentData objectAtIndex:indexPath.row];
     ShopInfoCommentModel *sicm = [[ShopInfoCommentModel alloc]initWithDictionary:dic error:nil];
     cell.shopInfoCommentModel = sicm;
+    [sicm release];
     return cell;
 
 }
@@ -169,6 +170,8 @@
     
     
     float height = [ShopInfoCommentCell getCellHeight:sicm tableview:tableView];
+    
+    [sicm release];
      
     
     return height;

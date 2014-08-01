@@ -68,7 +68,7 @@
         newAnnotation.animatesDrop = YES;
         newAnnotation.canShowCallout = YES;
         
-        return newAnnotation;
+        return [newAnnotation autorelease];
         
     }
     

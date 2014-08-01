@@ -177,6 +177,7 @@ static const CGFloat __blurTintColorAlpha = 0.2f;				// defines how much to tint
 	self.targetViewController = parentViewController;
 	
 	CGRect fromRect = [self.view convertRect:fromView.frame fromView:nil];
+    
 	self.imageView.transform = CGAffineTransformIdentity;
 	self.imageView.image = image;
 	self.imageView.alpha = 0.2;
